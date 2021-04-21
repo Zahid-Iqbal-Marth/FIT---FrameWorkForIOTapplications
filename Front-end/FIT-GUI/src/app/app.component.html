@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</head>
+
+
+
+
+
+
+
+
+
+<body class="text-center">
+<!--
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <h3 class="masthead-brand">Cover</h3>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link" (click)="allow_pipline()">Build Pipline</a>
+          <a class="nav-link" href="#">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main role="main" class="inner cover">
+      <h1 class="cover-heading">Cover your page.</h1>
+      <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+      <p class="lead">
+        <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+      </p>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      </div>
+    </footer>
+  </div>
+
+
+
+-->
+
+
+
+
+
+<mat-tab-group>
+  <mat-tab label="Home"> 
+
+
+
+    <div class="back">
+
+      <div class="container">
+
+        <h1 class="serif title home_content">
+
+          FIT : FrameworkforIoT Applications
+
+        </h1>
+
+        <p class="serif home_content paragraph">
+
+          FIT is a framework that allows users to create complex IoT applications that involve stream processing, event processing, and complex event processing. FIT is a generic framework aimed to be usable by the diverse users of CEP. A GUI is built upon the framework for generic as well as specific applications. Our GUI will enable users to add components to create the application's pipeline.
+
+
+        </p>
+
+      </div>
+
+    </div>
+    
+
+
+  </mat-tab>
+
+
+
+
+  <mat-tab label="Build Pipline">
+
+
+      <div class="sidenav serif">
+        <a (click)="addSensor()">Sensor</a>
+        <a (click)="addOperator();">Operators</a>
+        <a (click)="deploy();">Deploy</a>
+      </div>
+      
+      
+      
+      
+      
+      
+      <div class="main">
+      
+      <!-- We have used the ngx-graph package to display the lists of Nodes and Links into graph formate -->
+      <ngx-graph
+        class="chart-container"
+        [links]="Links"
+        [nodes]="Nodes"
+        [view] = "[1000,700]"
+        layout="dagreCluster"
+      >
+      
+        <!--displaying links-->
+        <ng-template #defsTemplate>
+          <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto">
+            <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
+          </svg:marker>
+      
+            <svg>
+              <defs>
+                <circle cx="50" cy="50" r="50" />
+              </defs>
+            </svg>
+      
+        </ng-template>
+      
+      
+        <!--displaying nodes-->
+        <ng-template #nodeTemplate let-node>
+          <svg:g class="node" matTooltip="{{node.label}}">
+            <svg [attr.width]="node.dimension.width" [attr.height]="node.dimension.height">
+              <image x="0%" y="0%" width="60" height="100" [attr.href]="node.meta.link"></image>
+            </svg>
+            <!-- <svg:text *ngIf="allow" [attr.x]="5" [attr.y]="node.height / 2">
+              {{node.label}}
+            </svg:text> -->
+          </svg:g>
+        </ng-template>
+      
+        <ng-template #linkTemplate let-link>
+          <svg:g class="edge">
+            <svg:path class="line" stroke-width="2" marker-end="url(#arrow)"></svg:path>
+            <svg:text class="edge-label" text-anchor="middle">
+              <textPath
+                class="text-path"
+                [attr.href]="'#' + link.id"
+                [style.dominant-baseline]="link.dominantBaseline"
+                startOffset="50%"
+              >
+                {{link.label}}
+              </textPath>
+            </svg:text>
+          </svg:g>
+        </ng-template>
+      </ngx-graph>
+      
+      </div>
+          
+      
+
+
+  </mat-tab>
+
+
+
+
+
+
+
+
+
+  <mat-tab label="Documentation">
+    
+    
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+      <!-- This is the tree node template for leaf nodes -->
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+        <li class="mat-tree-node">
+          <!-- use a disabled button to provide padding for tree leaf -->
+          <button mat-icon-button disabled></button>
+          {{node.name}}
+        </li>
+      </mat-tree-node>
+      <!-- This is the tree node template for expandable nodes -->
+      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+        <li>
+          <div class="mat-tree-node">
+            <button mat-icon-button matTreeNodeToggle
+                    [attr.aria-label]="'Toggle ' + node.name">
+              <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+            </button>
+            {{node.name}}
+          </div>
+          <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+            <ng-container matTreeNodeOutlet></ng-container>
+          </ul>
+        </li>
+      </mat-nested-tree-node>
+    </mat-tree>
+    
+  
+  
+  
+  
+  </mat-tab>
+</mat-tab-group>
+
+
+
+
+
+
+
+
+
+</body>
+
+
+   
+
+</html> 

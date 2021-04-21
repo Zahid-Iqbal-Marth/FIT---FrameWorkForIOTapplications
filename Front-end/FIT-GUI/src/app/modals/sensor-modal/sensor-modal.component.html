@@ -1,0 +1,23 @@
+<!-- my-dialog-modal.component.html -->
+<h2>Configure Sensor</h2>
+<div>
+    <mat-form-field >
+        <mat-label>Sensor Type</mat-label>
+        <mat-select [(ngModel)]="selectedType">
+        <mat-option *ngFor="let sensor of avaliableSensors" [value]="sensor">
+            {{sensor}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    
+    <mat-form-field >
+        <input matInput [(ngModel)]="config_data" placeholder="IP/File">
+    </mat-form-field>
+
+<div>
+    <button mat-raised-button (click)="closeDialog()">Configure</button>
+</div>
+</div>
+
+

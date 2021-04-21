@@ -1,0 +1,17 @@
+Command to start zookeeper : 
+
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Command to start kafka server:
+
+bin/kafka-server-start.sh config/server.properties
+
+NOTE  :  Run these commands in 'kafka' folder (for that open two terminal instances, one for each command)
+
+requirments : Java11
+
+Use can also follow this tutorial 
+
+https://www.youtube.com/watch?v=jY5fzVCkABg&ab_channel=SelfTuts
+
+

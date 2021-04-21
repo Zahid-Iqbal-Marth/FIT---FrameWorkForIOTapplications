@@ -1,0 +1,12 @@
+<!-- my-dialog-modal.component.html -->
+<h2>Deployment Configuration</h2>
+    <div class="col-md-12">
+			<form [formGroup]="form" (ngSubmit)="closeDialog()">
+				<formly-form [form]="form" [model]="model" [fields]="form_fields" >
+				</formly-form>
+			</form>
+      </div>
+
+      <div class = "row"  class="col-md-12">
+        <button mat-raised-button type="submit" (click)="closeDialog()">ADD</button>
+        </div>
