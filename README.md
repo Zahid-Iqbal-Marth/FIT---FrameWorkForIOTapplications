@@ -58,4 +58,5 @@ configuration you have chosen while making the pipeline.<br>
 ### 6 - Working Demo
 i) https://youtu.be/M8Byy2bTNQQ
 
-
+## 2 - How to add a new Node(sensor/operator) :<br>
+i) Follow this video tutorial https://youtu.be/p22H7l7aYvc
