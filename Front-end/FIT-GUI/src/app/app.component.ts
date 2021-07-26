@@ -28,13 +28,13 @@ const TREE_DATA: FoodNode[] = [
   {
     name: 'Project Overview',
     children: [
-      {name: "FIT is a framework that allows users to create complex IoT applications that involve stream processing, event processing, and complex event processing. FIT is a generic framework aimed to be usable by the diverse users of CEP. A GUI is built upon the framework for generic as well as specific applications. Our GUI will enable users add some components to create the application's pipeline."},
+      {name: "FIT is a framework that allows users to create complex IoT applications that involve stream processing, event processing, and complex event processing. FIT is a generic framework aimed to be usable by the diverse users of CEP. A GUI is built upon the framework for generic as well as specific applications. Our GUI will enable users to drag and drop/select some components to create the application's pipeline."},
     ]
   }, {
     name: 'Sensors',
     children: [
       {
-        name: 'It will provide data in the form of streams from sensors(we will use Virtual sensors to test our application).',
+        name: 'It will provide data in the form of streams from sensors(currently we are using dummy data to test our application.',
       },
     ]
   }, {
@@ -77,9 +77,9 @@ const TREE_DATA: FoodNode[] = [
     name: 'List of Dependencies',
     children: [
       {
-        name: "To install Dependencies and Settingup the application you just have to download setup_FIT_Application.sh and run it."},
+        name: "To install Setup this application you'll have to install following Dependencies"},
       {
-        name: "It will download the code from github, install all the Dependencies and start all servers requied to run the application"},
+        name: "https://github.com/Zahid-Iqbal-Marth/FIT---FrameWorkForIOTapplications#1---first-you-have-to-install-the-list-of-dependencies-"},
         
     ]
 
@@ -149,7 +149,7 @@ export class AppComponent {
     'Edge_detection' : ['Surveillance_Camera'],
     'Noise_Removel' : ['Surveillance_Camera'],
     'Fall_detection' : ['Surveillance_Camera'],
-    'Logical_Operator' : ['Human_Activity_Recognition', 'Filter', 'Logical_Operator'],
+    'Logical_Operator' : ['Human_Activity_Recognition', 'Filter', 'Logical_Operator', 'Fall_detection'],
     'Human_Activity_Recognition' : ['Accelerometer', 'Gyroscope']
   }
 
@@ -260,7 +260,7 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
 
-    var opt_logo = 'https://img2.pngio.com/azure-stream-analytics-synegrate-trusted-business-azure-stream-analytics-png-512_512.png'
+    var opt_logo = 'https://w7.pngwing.com/pngs/296/1002/png-transparent-microsoft-azure-azure-stream-analytics-data-lake-power-bi-cloud-computing-text-logo-cloud-computing-thumbnail.png'
 
       this.newNode = {
         id :  'O' + this.Operatorcount + '-' + result.data.type,

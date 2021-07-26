@@ -31,7 +31,7 @@ export class DeploymentComponent implements OnInit {
         templateOptions: {
           label: 'Destination Username',
           placeholder: 'Enter the Destination Username',
-          required: true,
+          required: false,
         }
       },
       {
@@ -40,7 +40,7 @@ export class DeploymentComponent implements OnInit {
         templateOptions: {
           label: 'Destination Password',
           placeholder: 'Enter the Destination Password',
-          required: true,
+          required: false,
           type : 'password'
         }
       },
